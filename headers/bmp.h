@@ -54,7 +54,7 @@ class Bmp{
 		const short int getPixelR(int x, int y);
 		const short int getPixelG(int x, int y);
 		const short int getPixelB(int x, int y);
-		void setPixel(int x, int y, int r, int g, int b);
+		void setPixel(int x, int y, short int r, short int g, short int b);
 
 		// Inline getters/setters
 		int getSize() const { return size; }
