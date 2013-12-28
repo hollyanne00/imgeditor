@@ -13,12 +13,22 @@ int main(int argc, char* argv[]){
 	}
 
 	Bmp *bmpA = loadbmp(argv[1]);
+	Bmp *bmpB = loadbmp(argv[1]);
+	Bmp *bmpC = loadbmp(argv[1]);
 
 	bmpA->saveCopy("img/testcopy");
 
 	invert(bmpA);
 
-	bmpA->saveCopy("img/testinvert");
+	bmpA->saveCopy("img/invert");
+
+	medianFilter(bmpB, 3);
+
+	bmpB->saveCopy("img/median3x3");
+
+	medianFilter(bmpC, 7);
+
+	bmpC->saveCopy("img/median7x7");
 
 	return 0;
 

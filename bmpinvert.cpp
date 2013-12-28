@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 
-int main(int argc, char *argv[]){
+int invert(int argc, char *argv[]){
 
 	std::ifstream ifs;
 	std::string line;

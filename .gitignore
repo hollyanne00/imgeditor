@@ -11,3 +11,18 @@
 *.lai
 *.la
 *.a
+
+# Visual studio files
+Debug
+*.aps
+*.opensdf
+*.rc
+*.sdf
+*.sln
+*.suo
+*.vcxproj
+*.filters
+*.user
+resource.h
+
+
