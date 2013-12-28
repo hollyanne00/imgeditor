@@ -1,3 +1,6 @@
+#ifndef BMP
+#define BMP
+
 #include <vector>
 
 class Bmp{
@@ -38,6 +41,8 @@ class Bmp{
 					std::cout << "Row size: " << rowsize << std::endl;
 				}
 
+				std::cout << "All good so far" << std::endl;
+
 				// Store bmp bytes in respective vectors
 				header.insert(header.begin(),filedata,filedata+pixoff);
 				pixels.resize(height);
@@ -46,6 +51,7 @@ class Bmp{
 						filedata+pixoff+(i*rowsize)+(i*padding),filedata+pixoff+((i+1)*rowsize)+((i+1)*padding));
 				}
 				footer.insert(footer.begin(),filedata+pixoff+imgsize,filedata+size);
+
 			}
 
 		}
@@ -64,3 +70,5 @@ class Bmp{
 		int getRowsize() const { return rowsize; }
 		short int getBpp() const { return bpp; }
 };
+
+#endif
