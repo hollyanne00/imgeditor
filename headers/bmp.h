@@ -1,6 +1,7 @@
 #ifndef BMP
 #define BMP
 
+#include <iostream>
 #include <vector>
 
 class Bmp{
@@ -41,8 +42,6 @@ class Bmp{
 					std::cout << "Row size: " << rowsize << std::endl;
 				}
 
-				std::cout << "All good so far" << std::endl;
-
 				// Store bmp bytes in respective vectors
 				header.insert(header.begin(),filedata,filedata+pixoff);
 				pixels.resize(height);
@@ -62,13 +61,11 @@ class Bmp{
 		const short int getPixelB(int x, int y);
 		void setPixel(int x, int y, short int r, short int g, short int b);
 
-		// Inline getters/setters
-		int getSize() const { return size; }
-		int getWidth() const { return width; }
-		int getHeight() const { return height; }
-		int getPadding() const { return padding; }
-		int getRowsize() const { return rowsize; }
-		short int getBpp() const { return bpp; }
+		// Getters/setters
+		const int getSize() { return size; }
+		const int getWidth() { return width; }
+		const int getHeight() { return height; }
+
 };
 
 #endif

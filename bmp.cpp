@@ -58,3 +58,4 @@ void Bmp::setPixel(int x, int y, short int r, short int g, short int b){
 	pixels[this->height-1-y][(x*3)] = (char) b;
 
 }
+

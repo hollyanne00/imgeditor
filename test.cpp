@@ -3,6 +3,7 @@
 #include <string>
 #include "headers/bmp.h"
 #include "headers/loadbmp.h"
+#include "headers/filters.h"
 
 int main(int argc, char* argv[]){
 
@@ -13,6 +14,12 @@ int main(int argc, char* argv[]){
 
 	Bmp *bmpA = loadbmp(argv[1]);
 
-	bmpA->saveCopy("test");
+	bmpA->saveCopy("img/testcopy");
+
+	invert(bmpA);
+
+	bmpA->saveCopy("img/testinvert");
+
+	return 0;
 
 }
