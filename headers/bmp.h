@@ -65,6 +65,7 @@ class Bmp{
 		const int getSize() { return size; }
 		const int getWidth() { return width; }
 		const int getHeight() { return height; }
+		const int getBpp() { return bpp;  }
 
 };
 

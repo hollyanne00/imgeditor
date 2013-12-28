@@ -7,20 +7,21 @@
 
 int main(int argc, char* argv[]){
 
-	if (argc != 2){
-		std::cout << "Usage: <filename>" << std::endl;
-		return 0;
-	}
+	Bmp *bmpA = loadbmp("img/hello.bmp");
 
-	Bmp *bmpA = loadbmp(argv[1]);
-	//Bmp *bmpB = loadbmp(argv[1]);
-	//Bmp *bmpC = loadbmp(argv[1]);
+	// Save a copy
+	bmpA->saveCopy("img/hellocopy");
 
-	bmpA->saveCopy("img/testcopy");
-
+	// Invert filter
 	invert(bmpA);
+	bmpA->saveCopy("img/helloinvert");
 
-	bmpA->saveCopy("img/invert");
+	Bmp *bmpB = loadbmp("img/rainbow.bmp");
+	Bmp *bmpC = loadbmp("img/rainbow2.bmp");
+
+	// Difference filter
+	difference(bmpB, bmpC);
+	bmpB->saveCopy("img/rainbowdifference.bmp");
 
 	//medianFilter(bmpB, 3);
 

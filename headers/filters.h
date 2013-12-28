@@ -5,8 +5,9 @@
 
 void invert(Bmp*);
 void fixContrast(Bmp*);
+void difference(Bmp*, Bmp*);
 
-void medianFilter(Bmp*, int size);
+void medianFilter(Bmp*, int);
 
 
 #endif

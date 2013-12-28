@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cmath>
 
 void invert(Bmp* bmp){
 
@@ -11,6 +12,46 @@ void invert(Bmp* bmp){
 			short int g = bmp->getPixelG(i, j);
 			short int b = bmp->getPixelB(i, j);
 			bmp->setPixel(i, j, 255 - r, 255 - g, 255 - b);
+		}
+	}
+
+}
+
+// Currrently puts difference result in bmp1
+void difference(Bmp* bmp1, Bmp* bmp2){
+
+	if (bmp1->getHeight() != bmp2->getHeight() || bmp1->getWidth() != bmp2->getWidth()){
+		// Both images must be the same size
+		return;
+	}
+
+	if (bmp1->getBpp() != bmp2->getBpp()){
+		// Both images must have same bpp
+		return;
+	}
+
+	for (int i = 0; i < bmp1->getHeight(); i++){
+		for (int j = 0; j < bmp1->getWidth(); j++){
+
+			// bmp 1 values
+			short int r1 = bmp1->getPixelR(i, j);
+			short int g1 = bmp1->getPixelG(i, j);
+			short int b1 = bmp1->getPixelB(i, j);
+
+			// bmp 2 values
+			short int r2 = bmp2->getPixelR(i, j);
+			short int g2 = bmp2->getPixelG(i, j);
+			short int b2 = bmp2->getPixelB(i, j);
+
+			int rdiff = std::abs(r1 - r2);
+			int gdiff = std::abs(g1 - g2);
+			int bdiff = std::abs(b1 - b2);
+
+			int diff = rdiff + gdiff + bdiff;
+
+			if (diff > 255) diff = 255;
+
+			bmp1->setPixel(i, j, diff, diff, diff);
 		}
 	}
 
