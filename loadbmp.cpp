@@ -31,10 +31,6 @@ Bmp* loadbmp(std::string filename){
 
 		mybmp = new Bmp(bytes, size);
 
-		std::cout << mybmp->getPixelR(0, 199) << std::endl;
-		std::cout << mybmp->getPixelG(0, 199) << std::endl;
-		std::cout << mybmp->getPixelB(0, 199) << std::endl;
-
 		ifs.close();
 
 	}
